@@ -23,7 +23,7 @@ RUN npm run build
 
 RUN npm config set strict-ssl false
 
-# RUN npm i pm2 -g --registry=http://registry.npm.taobao.org
+RUN npm i pm2 -g --registry=http://registry.npm.taobao.org
 
 
 # 容器对外暴露的端口号，要和node项目配置的端口号一致
