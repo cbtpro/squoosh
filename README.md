@@ -36,3 +36,17 @@ To develop for Squoosh:
 Squoosh is an open-source project that appreciates all community involvement. To contribute to the project, follow the [contribute guide](/CONTRIBUTING.md).
 
 [squoosh]: https://squoosh.app
+
+## Docker
+
+根据 Dockerfile
+创建镜像 docker build --platform=linux/amd64 --pull --rm -f "Dockerfile" -t squoosh:2.0.0 "."
+
+docker run -it --platform=linux/amd64 -p 127.0.0.1:9981:9981 -d --rm --name squoosh squoosh:2.0.0
+
+```bash
+docker run -e "DEV_PORT=5000" \
+    -it --platform=linux/amd64 -p 127.0.0.1:7981:5000 -d --rm --name squoosh squoosh:2.0.0
+```
+
+docker exec -it squoosh /bin/bash
