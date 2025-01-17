@@ -42,7 +42,7 @@ Squoosh is an open-source project that appreciates all community involvement. To
 根据 Dockerfile
 创建镜像 docker build --platform=linux/amd64 --pull --rm -f "Dockerfile" -t squoosh:2.0.0 "."
 
-docker run -it --platform=linux/amd64 -p 127.0.0.1:9981:9981 -d --rm --name squoosh squoosh:2.0.0
+docker run -it --platform=linux/amd64 -p 9999:8080 -d --name squoosh --restart=always squoosh:2.0.0
 
 ```bash
 docker run -e "DEV_PORT=5000" \
@@ -50,3 +50,6 @@ docker run -e "DEV_PORT=5000" \
 ```
 
 docker exec -it squoosh /bin/bash
+
+如果您已经有一个正在运行的容器，并希望为其添加自动重启策略，可以使用 docker update 命令：
+docker update --restart=always squoosh
